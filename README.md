@@ -129,14 +129,7 @@ http://YOUR-SERVER-PUBLIC-IP:8080
    M2=$M2_HOME/bin
    PAHT=<Existing_PATH>:$M2_HOME:$M2
    ```
-#### Checkpoint 
-1. logoff and login to check maven version
-  
-    ```sh
-    mvn --version
-    ```
-So far we have completed the installation of maven software to support maven plugin on the jenkins console. Let's jump onto Jenkins to complete the remaining steps. 
-
+ 
 ### Setup maven on Jenkins console
 1. Install maven plugin without restart  
   - `Manage Jenkins` > `Jenkins Plugins` > `available` > `Maven Invoker`
@@ -170,20 +163,7 @@ So far we have completed the installation of maven software to support maven plu
    ln -s /opt/apache-tomcat-8.5.35/bin/shutdown.sh /usr/local/bin/tomcatdown
    tomcatup
    ```
-  #### Check point :
-access tomcat application from browser on prot 8080  
- - http://<Public_IP>:8080
-
-  Using unique ports for each application is a best practice in an environment. But tomcat and Jenkins runs on ports number 8080. Hence lets change tomcat port number to 8090. Change port number in conf/server.xml file under tomcat home
-   ```sh
- cd /opt/apache-tomcat-8.5.35/conf
-# update port number in the "connecter port" field in server.xml
-# restart tomcat after configuration update
-tomcatdown
-tomcatup
-```
-
-1. Update users information in the tomcat-users.xml file
+2. Update users information in the tomcat-users.xml file
 goto tomcat home directory and Add below users to conf/tomcat-user.xml file
    ```sh
 	<role rolename="manager-gui"/>
@@ -194,8 +174,58 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
 	<user username="deployer" password="deployer" roles="manager-script"/>
 	<user username="tomcat" password="s3cret" roles="manager-gui"/>
    ```
-1. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
+3. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
 
+ ## D) Deploy on a Tomcat server
+ 
+ ### *Jenkins Job name:* `Deploy_on_Tomcat_Server`
+
+# Deploy on a Tomcat server
+# *Jenkins Job name:* `Deploy_on_Tomcat_Server`
+
+### Pre-requisites
+
+1. Jenkins server running
+2. Tomcat Server running
+
+### Adding Deployment steps
+
+1. Install 'deploy to container' plugin. This plugin needs to deploy on tomcat server. 
+
+  - Install 'deploy to container' plugin without restart  
+    - `Manage Jenkins` > `Jenkins Plugins` > `available` > `deploy to container`
+ 
+2. Jenkins should need access to the tomcat server to deploy build artifacts. setup credentials to enable this process. use credentials option on Jenkins home page.
+
+- setup credentials
+  - `credentials` > `jenkins` > `Global credentials` > `add credentials`
+    - Username	: `deployer`
+    - Password : `deployer`
+    - id      :  `deployer`
+    - Description: `user to deploy on tomcat vm`
+
+### Steps to create "Deploy_on_Tomcat_Server" Jenkin job
+ #### From Jenkins home page select "New Item"
+   - Enter an item name: `Deploy_on_Tomcat_Server`
+     - Copy from: `My_First_Maven_Build`
+     
+   - *Source Code Management:*
+      - Repository: `https://github.com/yankils/hello-world.git`
+      - Branches to build : `*/master`  
+   - *Poll SCM* :      - `* * * *`
+
+   - *Build:*
+     - Root POM:`pom.xml`
+     - Goals and options: `clean install package`
+
+ - *Post-build Actions*
+   - Deploy war/ear to container
+      - WAR/EAR files : `**/*.war`
+      - Containers : `Tomcat 8.x`
+         - Credentials: `deployer` (user created on above)
+         - Tomcat URL : `http://<PUBLIC_IP>:8080`
+
+Save and run the job now.
 
 ## Test
 
