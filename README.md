@@ -3,10 +3,11 @@
 ## Table of contents
 * [About](#About)
 * [Prerequisites](#Prerequisites)
-* [Framework](#Framework)
-* [Test](#Test)
+* [Framework libraries](#Framework)
 * [API documentation](#To)
+* [Test](#Test)
 * [Setup](#Setup)
+* [Deployment](#Deployment)
 
 ## About
 This is Consent Management RESTful API written in Java and Spring Framework. It gets build using Apache-Maven. This project is intended to be a demonstration the working of the API from a Consent management system. In this project, automated unit testing has been done using junit and data mocking for the automated unit tests using Mockito. The data captured through Rest API are being kept in MySQL. This repository is also currently integrated with CI/CD pipeline using Jenkins server on EC2 instances from AWS. 
@@ -18,7 +19,7 @@ This is Consent Management RESTful API written in Java and Spring Framework. It 
 * Apache-Tomcat server(8.5)
 * MySQL(5.6)
 
-## Framework
+## Framework libraries
 * Hibernate
 
 It is an ORM (Object Relational Mapping) tool. It's been used in Consent Management for interactions with database and for data persistence using Java Persistence API. It helps in keeping the data layer from rest of the layers.
@@ -51,3 +52,5 @@ Maven is a build automation tool used primarily for Java projects. All the Conse
 For testing all of the CRUD actions, I recommend using Postman.
 
 ## SetUp
+
+## Deployment
