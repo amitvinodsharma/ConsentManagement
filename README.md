@@ -19,12 +19,26 @@ This is Consent Management RESTful API written in Java and Spring Framework. It 
 ## Framework
 * Hibernate
 
-Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.
+It is an ORM (Object Relational Mapping) tool. It's been used in Consent Management for interactions with database and for data persistence using Java Persistence API. It helps in keeping the data layer from rest of the layers.
 
 * Spring
+
+It's an MVC framework designed around DispatchSerlet. All The RESTful Apis in Consent Management is being developed using Spring MVC framework. It helps in seperation of concerns.
+
 * Junit
+
+It is a unit testing framework for the Java programming language. It is important in the development of test-driven development. In Consent management all the development is supported by automated unit testing using junit.
+
 * Mockito
+
+It is a popular mock framework which can be used in conjunction with JUnit. Mockito allows you to create and configure mock objects. In Consent management all the objects needed for unit testing is being done through Mockito.
+
 * Springfox
+
+It is an automated JSON API documentation for API's built with Spring. It's been integrated with framework in Consent Management for the documentation of rest apis by providing swagger files for the same. 
+
 * Maven
+
+Maven is a build automation tool used primarily for Java projects. All the Consent management tools are being built using Maven.
 
 ## SetUp
