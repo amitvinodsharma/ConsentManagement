@@ -6,6 +6,7 @@
 * [Framework libraries](#Framework)
 * [API documentation](#To)
 * [Running the application](#Running)
+* [Setting the CI/CD pipeline](#Setting)
 * [Deployment using CI/CD pipeline](#Deployment)
 * [Test](#Test)
 
@@ -64,7 +65,7 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 4. After successfull build, run the project on Tomcat server.
 
 
-## Deployment using CI/CD pipeline
+## Setting the CI/CD pipeline
 
 For Consent management, linux EC2 instances have been used as Jenkins server and Tomcat server.
 
@@ -176,8 +177,9 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
    ```
 2.5. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
 
- ## D) Deploy on a Tomcat server
- 
+## Deployment using CI/CD pipeline
+
+ ### Deploy on a Tomcat server 
  ### *Jenkins Job name:* `Deploy_on_Tomcat_Server`
 
 ### 1. Pre-requisites
