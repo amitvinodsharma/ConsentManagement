@@ -111,7 +111,7 @@ http://YOUR-SERVER-PUBLIC-IP:8080
 
 ## B) Install Maven on Jenkins
 
-1. Download maven packages https://maven.apache.org/download.cgi onto Jenkins server. In this case, I am using /opt/maven as my installation directory
+### 1. Download maven packages https://maven.apache.org/download.cgi onto Jenkins server. In this case, I am using /opt/maven as my installation directory
  - Link : https://maven.apache.org/download.cgi
     ```sh
      # Creating maven directory under /opt
@@ -122,7 +122,7 @@ http://YOUR-SERVER-PUBLIC-IP:8080
      tar -xvzf apache-maven-3.6.1-bin.tar.gz
      ```
 	
-1. Setup M2_HOME and M2 paths in .bash_profile of the user and add these to the path variable
+### 2. Setup M2_HOME and M2 paths in .bash_profile of the user and add these to the path variable
    ```sh
    vi ~/.bash_profile
    M2_HOME=/opt/maven/apache-maven-3.6.1
@@ -130,40 +130,40 @@ http://YOUR-SERVER-PUBLIC-IP:8080
    PAHT=<Existing_PATH>:$M2_HOME:$M2
    ```
  
-### Setup maven on Jenkins console
-1. Install maven plugin without restart  
+### 3. Setup maven on Jenkins console
+3.1. Install maven plugin without restart  
   - `Manage Jenkins` > `Jenkins Plugins` > `available` > `Maven Invoker`
   - `Manage Jenkins` > `Jenkins Plugins` > `available` > `Maven Integration`
 
-2. Configure maven path
+3.2. Configure maven path
   - `Manage Jenkins` > `Global Tool Configuration` > `Maven`
   
  ## C) Tomcat installation on a machine
 
-### Pre-requisites
+### 1. Pre-requisites
 1. Machine with Java v1.8.x 
 
-### Install Apache Tomcat
-1. Download tomcat packages from  https://tomcat.apache.org/download-80.cgi onto /opt on EC2 instance
+### 2. Install Apache Tomcat
+2.1. Download tomcat packages from  https://tomcat.apache.org/download-80.cgi onto /opt on EC2 instance
    ```sh 
    # Create tomcat directory
    cd /opt
    wget http://mirrors.fibergrid.in/apache/tomcat/tomcat-8/v8.5.35/bin/apache-tomcat-8.5.35.tar.gz
    tar -xvzf /opt/apache-tomcat-8.5.35.tar.gz
    ```
-1. give executing permissions to startup.sh and shutdown.sh which are under bin. 
+2.2. give executing permissions to startup.sh and shutdown.sh which are under bin. 
    ```sh
    chmod +x /opt/apache-tomcat-8.5.35/bin/startup.sh 
    shutdown.sh
    ```
 
-1. create link files for tomcat startup.sh and shutdown.sh 
+2.3. create link files for tomcat startup.sh and shutdown.sh 
    ```sh
    ln -s /opt/apache-tomcat-8.5.35/bin/startup.sh /usr/local/bin/tomcatup
    ln -s /opt/apache-tomcat-8.5.35/bin/shutdown.sh /usr/local/bin/tomcatdown
    tomcatup
    ```
-2. Update users information in the tomcat-users.xml file
+2.4 Update users information in the tomcat-users.xml file
 goto tomcat home directory and Add below users to conf/tomcat-user.xml file
    ```sh
 	<role rolename="manager-gui"/>
@@ -174,28 +174,25 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
 	<user username="deployer" password="deployer" roles="manager-script"/>
 	<user username="tomcat" password="s3cret" roles="manager-gui"/>
    ```
-3. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
+2.5. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
 
  ## D) Deploy on a Tomcat server
  
  ### *Jenkins Job name:* `Deploy_on_Tomcat_Server`
 
-# Deploy on a Tomcat server
-# *Jenkins Job name:* `Deploy_on_Tomcat_Server`
+### 1. Pre-requisites
 
-### Pre-requisites
+1.1. Jenkins server running
+1.2. Tomcat Server running
 
-1. Jenkins server running
-2. Tomcat Server running
+### 2. Adding Deployment steps
 
-### Adding Deployment steps
-
-1. Install 'deploy to container' plugin. This plugin needs to deploy on tomcat server. 
+2.1 Install 'deploy to container' plugin. This plugin needs to deploy on tomcat server. 
 
   - Install 'deploy to container' plugin without restart  
     - `Manage Jenkins` > `Jenkins Plugins` > `available` > `deploy to container`
  
-2. Jenkins should need access to the tomcat server to deploy build artifacts. setup credentials to enable this process. use credentials option on Jenkins home page.
+2.2 Jenkins should need access to the tomcat server to deploy build artifacts. setup credentials to enable this process. use credentials option on Jenkins home page.
 
 - setup credentials
   - `credentials` > `jenkins` > `Global credentials` > `add credentials`
@@ -204,7 +201,7 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
     - id      :  `deployer`
     - Description: `user to deploy on tomcat vm`
 
-### Steps to create "Deploy_on_Tomcat_Server" Jenkin job
+### 3. Steps to create "Deploy_on_Tomcat_Server" Jenkin job
  #### From Jenkins home page select "New Item"
    - Enter an item name: `Deploy_on_Tomcat_Server`
      - Copy from: `My_First_Maven_Build`
