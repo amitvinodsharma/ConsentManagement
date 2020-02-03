@@ -68,7 +68,7 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 
 For Consent management, linux EC2 instances have been used as Jenkins server and Tomcat server.
 
-## Jenkins setup
+## A) Jenkins setup
 
 ### 1. Install Jenkins
 
@@ -109,7 +109,7 @@ http://YOUR-SERVER-PUBLIC-IP:8080
   - `Manage Jenkins` > `Global Tool Configuration` > `JDK`  
 - Create another admin user id
 
-## Install Maven on Jenkins
+## B) Install Maven on Jenkins
 
 1. Download maven packages https://maven.apache.org/download.cgi onto Jenkins server. In this case, I am using /opt/maven as my installation directory
  - Link : https://maven.apache.org/download.cgi
@@ -145,7 +145,7 @@ So far we have completed the installation of maven software to support maven plu
 2. Configure maven path
   - `Manage Jenkins` > `Global Tool Configuration` > `Maven`
   
- ## Tomcat installation on a machine
+ ## C) Tomcat installation on a machine
 
 ### Pre-requisites
 1. Machine with Java v1.8.x 
@@ -182,6 +182,20 @@ access tomcat application from browser on prot 8080
 tomcatdown
 tomcatup
 ```
+
+1. Update users information in the tomcat-users.xml file
+goto tomcat home directory and Add below users to conf/tomcat-user.xml file
+   ```sh
+	<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<role rolename="manager-jmx"/>
+	<role rolename="manager-status"/>
+	<user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+	<user username="deployer" password="deployer" roles="manager-script"/>
+	<user username="tomcat" password="s3cret" roles="manager-gui"/>
+   ```
+1. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
+
 
 ## Test
 
