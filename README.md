@@ -46,6 +46,10 @@ Maven is a build automation tool used primarily for Java projects. All the Conse
 
 ## To view Swagger 2 API docs
 
+* Run the server and browse to http://localhost:8080/ConsentManagement/swagger-ui.html
+
+* Swagger in json format can be found at http://localhost:8080/ConsentManagement/v2/api-docs
+
 ## SetUp
 
 ## Deployment
