@@ -5,9 +5,9 @@
 * [Prerequisites](#Prerequisites)
 * [Framework libraries](#Framework)
 * [API documentation](#To)
-* [Test](#Test)
 * [Setup](#Setup)
 * [Deployment](#Deployment)
+* [Test](#Test)
 
 ## About
 This is Consent Management RESTful API written in Java and Spring Framework. It gets build using Apache-Maven. This project is intended to be a demonstration the working of the API from a Consent management system. In this project, automated unit testing has been done using junit and data mocking for the automated unit tests using Mockito. The data captured through Rest API are being kept in MySQL. This repository is also currently integrated with CI/CD pipeline using Jenkins server on EC2 instances from AWS. 
@@ -46,11 +46,11 @@ Maven is a build automation tool used primarily for Java projects. All the Conse
 
 ## To view Swagger 2 API docs
 
+## SetUp
+
+## Deployment
+
 
 ## Test
 
 For testing all of the CRUD actions, I recommend using Postman.
-
-## SetUp
-
-## Deployment
