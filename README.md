@@ -55,9 +55,13 @@ Maven is a build automation tool used primarily for Java projects. All the Conse
 1. Clone the repository
 git clone https://github.com/amitvinodsharma/ConsentManagement.git
 
-2. Build the code using Maven
+2. Create database with a name "consentmanagement" on MySQL instance. All the tables will get created on runtime by hibernate incase not present in the database.
 
-3. After successfull build, run the project on Tomcat server.
+3. Change the connection string in src/main/webapp/WEB-INF/spring-servlet.xml with your database instance.
+
+3. Build the code using Maven
+
+4. After successfull build, run the project on Tomcat server.
 
 
 ## Deployment
