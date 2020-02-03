@@ -68,6 +68,8 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 
 For Consent management, linux EC2 instances have been used as Jenkins server and Tomcat server.
 
+## Jenkins setup
+
 ### 1. Install Jenkins
 
 Get the latest version of jenkins from https://pkg.jenkins.io/redhat-stable/ and install
@@ -106,6 +108,8 @@ http://YOUR-SERVER-PUBLIC-IP:8080
 - Configure `java` path
   - `Manage Jenkins` > `Global Tool Configuration` > `JDK`  
 - Create another admin user id
+
+## Install Maven on Jenkins
 
 
 ## Test
