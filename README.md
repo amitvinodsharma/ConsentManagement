@@ -5,7 +5,7 @@
 * [Prerequisites](#Prerequisites)
 * [Framework libraries](#Framework)
 * [API documentation](#To)
-* [Setup](#Setup)
+* [Running the application](#Running)
 * [Deployment](#Deployment)
 * [Test](#Test)
 
@@ -50,7 +50,15 @@ Maven is a build automation tool used primarily for Java projects. All the Conse
 
 * Swagger in json format can be found at http://localhost:8080/ConsentManagement/v2/api-docs
 
-## SetUp
+## Running the application
+
+1. Clone the repository
+git clone https://github.com/amitvinodsharma/ConsentManagement.git
+
+2. Build the code using Maven
+
+3. After successfull build, run the project on Tomcat server.
+
 
 ## Deployment
 
