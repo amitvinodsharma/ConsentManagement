@@ -64,7 +64,48 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 4. After successfull build, run the project on Tomcat server.
 
 
-## Deployment
+## Deployment using CI/CD pipeline
+
+For Consent management, linux EC2 instances have been used as Jenkins server and Tomcat server.
+
+### 1. Install Jenkins
+
+Get the latest version of jenkins from https://pkg.jenkins.io/redhat-stable/ and install
+
+yum -y install wget
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum -y install jenkins
+
+### 2. Install Java 1.8x on the machine where Jenkins is running
+
+yum install java-1.8*
+#yum -y install java-1.8.0-openjdk
+
+### 3. Start Jenkins
+
+#### Start jenkins service
+service jenkins start
+
+#### Setup Jenkins to start at boot,
+chkconfig jenkins on
+
+### 4. Accessing Jenkins
+By default jenkins runs at port 8080, You can access jenkins at
+
+http://YOUR-SERVER-PUBLIC-IP:8080
+
+### 5. Configure Jenkins
+
+- The default Username is `admin`
+- Grab the default password 
+- Password Location:`/var/lib/jenkins/secrets/initialAdminPassword`
+- `Skip` Plugin Installation; _We can do it later_
+- Change admin password
+   - `Admin` > `Configure` > `Password`
+- Configure `java` path
+  - `Manage Jenkins` > `Global Tool Configuration` > `JDK`  
+- Create another admin user id
 
 
 ## Test
