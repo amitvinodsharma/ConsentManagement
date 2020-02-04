@@ -103,7 +103,7 @@ http://YOUR-SERVER-PUBLIC-IP:8080
 - The default Username is `admin`
 - Grab the default password 
 - Password Location:`/var/lib/jenkins/secrets/initialAdminPassword`
-- `Skip` Plugin Installation; _We can do it later_
+- `Skip` Plugin Installation; _Done in later steps and mentioned below_
 - Change admin password
    - `Admin` > `Configure` > `Password`
 - Configure `java` path
@@ -205,11 +205,11 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
 
 ### 3. Steps to create "Deploy_on_Tomcat_Server" Jenkin job
  #### From Jenkins home page select "New Item"
-   - Enter an item name: `Deploy_on_Tomcat_Server`
-     - Copy from: `My_First_Maven_Build`
+   - Enter an item name: `Deploy_on_Tomcat_Server`    
+     - Select 'Maven project'      
      
    - *Source Code Management:*
-      - Repository: `https://github.com/yankils/hello-world.git`
+      - Repository: `https://github.com/amitvinodsharma/ConsentManagement.git`
       - Branches to build : `*/master`  
    - *Poll SCM* :      - `* * * *`
 
