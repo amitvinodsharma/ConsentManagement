@@ -4,7 +4,7 @@
 * [About](#About)
 * [Prerequisites](#Prerequisites)
 * [Framework libraries](#Framework_libraries)
-* [API documentation](#To_view_Swagger_2_API_docs)
+* [API documentation](#API_documentation)
 * [Running the application](#Running_the_application)
 * [Setting the CI/CD pipeline](#Setting_the_CI_CD_pipeline)
 * [Deployment using CI/CD pipeline](#Deployment_using_CI_CD_pipeline)
@@ -45,7 +45,9 @@ It is an automated JSON API documentation for API's built with Spring. It's been
 
 Maven is a build automation tool used primarily for Java projects. All the Consent management tools are being built using Maven.
 
-## To_view_Swagger_2_API_docs
+## API_documentation
+
+### To view Swagger 2 API docs
 
 * Run the server and browse to http://localhost:8080/ConsentManagement/swagger-ui.html
 
