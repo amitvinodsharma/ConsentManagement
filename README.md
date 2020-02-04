@@ -64,7 +64,9 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 
 3. Build the code using Maven
 
-4. After successfull build, run the project on Tomcat server.
+4. After successfull build and all unit test passed in junit.
+
+5. Run the project on Tomcat server (http://localhost:8080/ConsentManagement).
 
 
 ## Setting_the_CI_CD_pipeline
