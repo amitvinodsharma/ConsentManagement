@@ -3,11 +3,11 @@
 ## Table of contents
 * [About](#About)
 * [Prerequisites](#Prerequisites)
-* [Framework libraries](#Framework)
-* [API documentation](#To)
-* [Running the application](#Running)
-* [Setting the CI/CD pipeline](#Setting)
-* [Deployment using CI/CD pipeline](#Deployment)
+* [Framework libraries](#Framework_libraries)
+* [API documentation](#To_view_Swagger_2_API_docs)
+* [Running the application](#Running_the_application)
+* [Setting the CI/CD pipeline](#Setting_the_CI_CD_pipeline)
+* [Deployment using CI/CD pipeline](#Deployment_using_CI_CD_pipeline)
 * [Test](#Test)
 
 ## About
@@ -20,7 +20,7 @@ This is Consent Management RESTful API written in Java and Spring Framework. It 
 * Apache-Tomcat server(8.5)
 * MySQL(5.6)
 
-## Framework libraries
+## Framework_libraries
 * Hibernate
 
 It is an ORM (Object Relational Mapping) tool. It's been used in Consent Management for interactions with database and for data persistence using Java Persistence API. It helps in keeping the data layer from rest of the layers.
@@ -45,13 +45,13 @@ It is an automated JSON API documentation for API's built with Spring. It's been
 
 Maven is a build automation tool used primarily for Java projects. All the Consent management tools are being built using Maven.
 
-## To view Swagger 2 API docs
+## To_view_Swagger_2_API_docs
 
 * Run the server and browse to http://localhost:8080/ConsentManagement/swagger-ui.html
 
 * Swagger in json format can be found at http://localhost:8080/ConsentManagement/v2/api-docs
 
-## Running the application
+## Running_the_application
 
 1. Clone the repository
 git clone https://github.com/amitvinodsharma/ConsentManagement.git
@@ -65,7 +65,7 @@ git clone https://github.com/amitvinodsharma/ConsentManagement.git
 4. After successfull build, run the project on Tomcat server.
 
 
-## Setting the CI/CD pipeline
+## Setting_the_CI_CD_pipeline
 
 For Consent management, linux EC2 instances have been used as Jenkins server and Tomcat server.
 
@@ -177,7 +177,7 @@ goto tomcat home directory and Add below users to conf/tomcat-user.xml file
    ```
 2.5. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
 
-## Deployment using CI/CD pipeline
+## Deployment_using_CI_CD_pipeline
 
  ### Deploy on a Tomcat server 
  ### *Jenkins Job name:* `Deploy_on_Tomcat_Server`
