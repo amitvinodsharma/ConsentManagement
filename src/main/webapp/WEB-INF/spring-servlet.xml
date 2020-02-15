@@ -9,8 +9,6 @@
 
 	<annotation-driven />
 
-	<resources mapping="/resources/**" location="/resources/" />
-
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -40,7 +38,24 @@
 		</beans:property>
 	</beans:bean>
 	
-	<context:component-scan base-package="com.api.consent" />
+	<context:component-scan base-package="com.api.consent" >
+	<context:include-filter type="annotation"
+		expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation"
+		expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+	<beans:bean id="swagger2Config"
+	  class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration">
+	</beans:bean>
+	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
+	<resources order="1" location="/resources/"
+		mapping="/resources/**" />
+		<resources mapping="swagger-ui.html"
+		location="classpath:/META-INF/resources/" />
+		<resources mapping="/webjars/**"
+		location="classpath:/META-INF/resources/webjars/" />
+		
+		<default-servlet-handler />
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
