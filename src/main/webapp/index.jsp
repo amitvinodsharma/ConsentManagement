@@ -5,5 +5,7 @@
 <h2>Into the world of docker using ansible</h2>
 <h2>Complete automation - Part 1</h2>
 <h2>Complete automation - Part 2</h2>
+<h2>Completed automation - Part 3 </h2>  
+  <h2>Completed training </h2>
 </body>
 </html>
